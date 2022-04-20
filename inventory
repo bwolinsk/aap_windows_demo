@@ -1,0 +1,9 @@
+[rhel]
+18.223.187.51
+
+[windows]
+52.15.128.70
+
+[mixed_web_servers:children]
+rhel
+windows
