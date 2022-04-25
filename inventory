@@ -1,9 +1,13 @@
 [rhel]
-18.223.187.51
+3.131.97.52
 
 [windows]
-52.15.128.70
+18.223.214.70
 
 [mixed_web_servers:children]
 rhel
 windows
+
+[windows:vars]
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
