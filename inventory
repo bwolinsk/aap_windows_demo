@@ -9,5 +9,7 @@ rhel
 windows
 
 [windows:vars]
+ansible_user=Administrator
+ansible_password=US)BrO.Iy*mWmlA4%W5orqSn5o&t33Pr
 ansible_connection=winrm
 ansible_winrm_server_cert_validation=ignore
