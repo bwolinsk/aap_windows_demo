@@ -23,6 +23,11 @@
         include_management_tools: yes
       register: win_feature
 
+    - name: Create website index.html
+      win_copy:
+        content: "Windows Server"
+        dest: C:\Inetpub\wwwroot\index.html
+
     - name: Reboot if installing Web-Server feature requires it
       ansible.windows.win_reboot:
       when: win_feature.reboot_required
