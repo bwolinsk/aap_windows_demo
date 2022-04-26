@@ -15,12 +15,6 @@
         - Web-Common-Http
         state: present
 
-    - name: Install NET-Framework-Core from file
-      ansible.windows.win_feature:
-        name: NET-Framework-Core
-        source: C:\Temp\iso\sources\sxs
-        state: present
-
     - name: Install IIS Web-Server with sub features and management tools
       ansible.windows.win_feature:
         name: Web-Server
