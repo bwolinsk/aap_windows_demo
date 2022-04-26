@@ -1,8 +1,8 @@
 [rhel]
-3.131.97.52
+3.141.17.211
 
 [windows]
-18.223.214.70
+18.224.21.45
 
 [mixed_web_servers:children]
 rhel
