@@ -46,5 +46,5 @@
         state: "{{ service_state }}"
         enabled: "{{ mode_survey }}"
       become: yes
-      when: 'ansible_distribution == "Microsoft Windows Server 2019 Datacenter"'
+      when: 'ansible_distribution == "RedHat"'
 
