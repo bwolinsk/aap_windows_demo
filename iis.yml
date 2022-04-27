@@ -23,6 +23,15 @@
         include_management_tools: yes
       register: win_feature
 
+    - name: Disable Windows Firewall
+      community.windows.win_firewall:
+        state: disabled
+        profiles:
+          - Domain
+          - Private
+          - Public
+
+
     - name: Create website index.html
       win_copy:
         content: "Windows Server"
