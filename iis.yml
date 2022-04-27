@@ -24,13 +24,12 @@
       register: win_feature
 
     - name: Disable Windows Firewall
-      community.windows.win_firewall:
+      win_firewall:
         state: disabled
         profiles:
-          - Domain
-          - Private
-          - Public
-
+        - Domain
+        - Private
+        - Public
 
     - name: Create website index.html
       win_copy:
