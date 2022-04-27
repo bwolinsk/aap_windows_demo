@@ -5,6 +5,11 @@
   gather_facts: true
 
   tasks:
+    - name: Install httpd
+      yum:
+        name: httpd
+        state: latest
+
     - name: Print all available facts
       ansible.builtin.debug:
         var: ansible_facts
