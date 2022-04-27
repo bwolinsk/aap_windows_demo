@@ -30,7 +30,7 @@
     - name: Set Windows specific value for mode variable
       set_fact:
         mode: manual
-      when: 'mode_survey == "no" and ansible_distribution="Microsoft Windows Server 2019 Datacenter"'
+      when: 'mode_survey == "no" and ansible_distribution == "Microsoft Windows Server 2019 Datacenter"'
 
     - name: Set service startup mode and current state
       win_service:
