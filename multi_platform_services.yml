@@ -1,7 +1,6 @@
 ---
 - name: Manage the state of Windows/RHEL Web Services
   hosts: mixed_web_servers
-  connection: local
   gather_facts: true
 
   tasks:
@@ -13,31 +12,25 @@
       ansible.builtin.debug:
         var: ansible_distribution
 
-    - name: Install httpd
-      dnf:
-        name: httpd
-        state: latest
-      when: '"RedHat" in ansible_distribution'
-
     - name: Set Windows specific value for service variable
       set_fact:
         service: W3Svc
-      when: '"Windows" in ansible_distribution and service_survey == "web service"'
+      when: 'ansible_distribution == "Microsoft Windows Server 2019 Datacenter" and service_survey == "web service"'
 
     - name: Set RHEL specific value for service variable
       set_fact:
         service: httpd
-      when: '"RedHat" in ansible_distribution and service_survey == "web service"'
+      when: 'ansible_distribution == "RedHat" and service_survey == "web service"'
 
     - name: Set Windows specific value for mode variable
       set_fact:
         mode: auto
-      when: 'mode_survey == "yes" and "Windows" in ansible_distribution'
+      when: 'mode_survey == "yes" and ansible_distribution == "Microsoft Windows Server 2019 Datacenter"'
 
     - name: Set Windows specific value for mode variable
       set_fact:
         mode: manual
-      when: 'mode_survey == "no" and "Windows" in ansible_distribution'
+      when: 'mode_survey == "no" and ansible_distribution="Microsoft Windows Server 2019 Datacenter"'
 
     - name: Set service startup mode and current state
       win_service:
@@ -45,7 +38,7 @@
         start_mode: "{{ mode }}"
         state: "{{ service_state }}"
         force_dependent_services: yes
-      when: '"Windows" in ansible_distribution'
+      when: 'ansible_distribution == "Microsoft Windows Server 2019 Datacenter"'
 
     - name: Set service startup mode and current state
       service:
@@ -53,5 +46,5 @@
         state: "{{ service_state }}"
         enabled: "{{ mode_survey }}"
       become: yes
-      when: '"RedHat" in ansible_distribution'
+      when: 'ansible_distribution == "Microsoft Windows Server 2019 Datacenter"'
 
