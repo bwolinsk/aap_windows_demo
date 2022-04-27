@@ -14,7 +14,7 @@
         var: ansible_distribution
 
     - name: Install httpd
-      yum:
+      dnf:
         name: httpd
         state: latest
       when: '"RedHat" in ansible_distribution'
