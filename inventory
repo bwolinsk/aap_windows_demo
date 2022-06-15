@@ -2,7 +2,7 @@
 18.191.2.221
 
 [windows]
-3.138.196.209
+3.19.120.254
 
 [mixed_web_servers:children]
 rhel
@@ -10,6 +10,6 @@ windows
 
 [windows:vars]
 ansible_user=Administrator
-ansible_password=US)BrO.Iy*mWmlA4%W5orqSn5o&t33Pr
+ansible_password=gnNuui.yPh@I2nUMihAMSzY.3A-Wnr$!
 ansible_connection=winrm
 ansible_winrm_server_cert_validation=ignore
