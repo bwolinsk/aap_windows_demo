@@ -1,0 +1,42 @@
+---
+name: Install and start Apache Web Server on RHEL OS
+hosts: rhel
+become: true
+tasks:
+  - name: Install httpd
+    ansible.builtin.dnf:
+      name: httpd
+      state: latest
+
+  - name: Install firewalld
+    ansible.builtin.dnf:
+      name: firewalld
+      state: latest
+
+  - name: Install httpd-tools
+    ansible.builtin.dnf:
+      name: httpd-tools
+      state: latest
+
+  - name: Ensure httpd is running
+    service:
+      name: httpd
+      state: started
+      enabled: true
+
+  - name: Open port 80 for http access
+    firewalld:
+      service: http
+      permanent: true
+      state: enabled
+
+  - name: Open port 443 for https access
+    firewalld:
+      service: https
+      permanent: true
+      state: enabled
+
+  - name: Add content to index.html
+    copy:
+      content: "Welcome to the Apache Server"
+      dest: /var/www/html/index.html
