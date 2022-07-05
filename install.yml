@@ -60,5 +60,5 @@
 
   - name: Add php content
     copy:
-      content: "<?php phpinfo(); ?>"
+      src: file.php
       dest: /var/www/html/info.php
