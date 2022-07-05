@@ -60,5 +60,6 @@
 
   - name: Add php content
     copy:
-      src: testfile.php 
+      src: /var/www/html/testfile.php
+      remote_src: yes 
       dest: /var/www/html/info.php
