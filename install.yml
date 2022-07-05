@@ -1,8 +1,8 @@
 ---
-name: Install and start Apache Web Server on RHEL OS
-hosts: rhel
-become: true
-tasks:
+- name: Install and start Apache Web Server on RHEL OS
+  hosts: all
+  become: true
+  tasks:
   - name: Install httpd
     ansible.builtin.dnf:
       name: httpd
