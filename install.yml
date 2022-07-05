@@ -60,5 +60,5 @@
 
   - name: Add php content
     copy:
-      content: "Hi" 
+      src: testfile.php 
       dest: /var/www/html/info.php
