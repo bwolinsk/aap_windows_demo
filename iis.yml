@@ -28,6 +28,4 @@
         content: "Windows Server"
         dest: C:\Inetpub\wwwroot\index.html
 
-    - name: Reboot if installing Web-Server feature requires it
-      ansible.windows.win_reboot:
-      when: win_feature.reboot_required
+    
