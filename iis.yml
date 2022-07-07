@@ -21,7 +21,7 @@
 
     - name: Create website index.html
       win_copy:
-        content: "Windows Server"
+        content: "This is the Windows Server"
         dest: C:\Inetpub\wwwroot\index.html
         
     - name: Reboot if installing Web-Server feature requires it
